@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Icon Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .icon-preview { margin: 20px 0; }
+        canvas { border: 1px solid #ccc; margin: 10px; }
+    </style>
+</head>
+<body>
+    <h1>YouTube Sentiment Analyzer - Icon Generator</h1>
+    <p>This page generates the required icon files for the Chrome extension.</p>
+    
+    <div class="icon-preview">
+        <h3>16x16 Icon</h3>
+        <canvas id="icon16" width="16" height="16"></canvas>
+        <button onclick="downloadIcon('icon16', 'icon16.png')">Download 16x16</button>
+    </div>
+    
+    <div class="icon-preview">
+        <h3>48x48 Icon</h3>
+        <canvas id="icon48" width="48" height="48"></canvas>
+        <button onclick="downloadIcon('icon48', 'icon48.png')">Download 48x48</button>
+    </div>
+    
+    <div class="icon-preview">
+        <h3>128x128 Icon</h3>
+        <canvas id="icon128" width="128" height="128"></canvas>
+        <button onclick="downloadIcon('icon128', 'icon128.png')">Download 128x128</button>
+    </div>
+
+    <script>
+        function createIcon(canvasId, size) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, size, size);
+            
+            // Background gradient (YouTube red)
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#FF0000');
+            gradient.addColorStop(1, '#CC0000');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, size, size);
+            
+            // White play button (simplified YouTube icon)
+            ctx.fillStyle = '#FFFFFF';
+            const centerX = size / 2;
+            const centerY = size / 2;
+            const triangleSize = size * 0.3;
+            
+            ctx.beginPath();
+            ctx.moveTo(centerX - triangleSize/2, centerY - triangleSize/2);
+            ctx.lineTo(centerX + triangleSize/2, centerY);
+            ctx.lineTo(centerX - triangleSize/2, centerY + triangleSize/2);
+            ctx.closePath();
+            ctx.fill();
+            
+            // Add sentiment analysis indicator (small chart icon)
+            if (size >= 48) {
+                ctx.fillStyle = '#FFFFFF';
+                ctx.globalAlpha = 0.8;
+                
+                // Small bar chart in corner
+                const chartX = size * 0.65;
+                const chartY = size * 0.65;
+                const barWidth = size * 0.04;
+                const maxBarHeight = size * 0.2;
+                
+                // Three bars of different heights
+                ctx.fillRect(chartX, chartY, barWidth, maxBarHeight * 0.6);
+                ctx.fillRect(chartX + barWidth * 1.5, chartY - maxBarHeight * 0.2, barWidth, maxBarHeight * 0.8);
+                ctx.fillRect(chartX + barWidth * 3, chartY - maxBarHeight * 0.4, barWidth, maxBarHeight);
+                
+                ctx.globalAlpha = 1;
+            }
+        }
+        
+        function downloadIcon(canvasId, filename) {
+            const canvas = document.getElementById(canvasId);
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+        
+        // Generate all icons on page load
+        window.onload = function() {
+            createIcon('icon16', 16);
+            createIcon('icon48', 48);
+            createIcon('icon128', 128);
+        };
+    </script>
+</body>
+</html>
