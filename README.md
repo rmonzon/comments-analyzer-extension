@@ -13,6 +13,9 @@ For more info, visit https://commentsanalyzer.info/
 - 🔄 **Refresh Option**: Force refresh analysis for updated results
 - 🎨 **Modern Design**: Clean, YouTube-themed interface optimized for extension popup
 
+## Screenshots
+![screenshot-1](https://github.com/user-attachments/assets/2862262e-3427-465b-8baf-a8d99a18c041)
+
 ## Installation
 
 ### Method 1: Load as Unpacked Extension (Development)
