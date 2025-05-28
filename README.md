@@ -1,6 +1,8 @@
 # YouTube Comment Sentiment Analyzer
 
-A Chrome extension that analyzes the sentiment of YouTube video comments using AI-powered sentiment analysis. Get instant insights into the emotional tone of comments on any YouTube video.
+A Chrome extension that analyzes the sentiment of YouTube video comments using AI. Get an instant summary and insights into the emotional tone of comments on any YouTube video.
+
+For more info, visit https://commentsanalyzer.info/
 
 ## Features
 
