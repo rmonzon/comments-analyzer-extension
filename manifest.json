@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "YouTube Comment Sentiment Analyzer",
+  "name": "Youtube Comments Analyzer",
   "version": "1.0.0",
-  "description": "Analyze sentiment of YouTube video comments with AI-powered insights",
+  "description": "Quickly summarize and analyze YouTube comments using AI-powered insights.",
   "permissions": [
     "activeTab"
   ],

@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YouTube Sentiment Analyzer</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="container">
         <header class="header">
             <div class="logo">
                 <svg width="24" height="24" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="64" height="64" rx="12" fill="#FF3333"/>
-                    <path d="M44 20H20C17.79 20 16 21.79 16 24V36C16 38.21 17.79 40 20 40H26L32 46L38 40H44C46.21 40 48 38.21 48 36V24C48 21.79 46.21 20 44 20Z" fill="white"/>
-                    <circle cx="26" cy="30" r="2" fill="#FF3333"/>
-                    <circle cx="32" cy="30" r="2" fill="#FF3333"/>
-                    <circle cx="38" cy="30" r="2" fill="#FF3333"/>
+                    <rect width="64" height="64" rx="12" fill="#FF3333" />
+                    <path
+                        d="M44 20H20C17.79 20 16 21.79 16 24V36C16 38.21 17.79 40 20 40H26L32 46L38 40H44C46.21 40 48 38.21 48 36V24C48 21.79 46.21 20 44 20Z"
+                        fill="white" />
+                    <circle cx="26" cy="30" r="2" fill="#FF3333" />
+                    <circle cx="32" cy="30" r="2" fill="#FF3333" />
+                    <circle cx="38" cy="30" r="2" fill="#FF3333" />
                 </svg>
-                <h1>Comment Analyzer</h1>
+                <h1>Youtube Comments Analyzer</h1>
+                <a href="https://commentsanalyzer.info" target="_blank" class="demo-link">View in Web App</a>
             </div>
         </header>
 
@@ -66,7 +71,8 @@
                     <h3>Comment Analysis Results</h3>
                     <div class="results-actions">
                         <button id="share-btn" class="share-button" title="Copy Shareable Link">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
                                 <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
                                 <polyline points="16,6 12,2 8,6"></polyline>
                                 <line x1="12" y1="2" x2="12" y2="15"></line>
@@ -74,7 +80,8 @@
                             <span>Share</span>
                         </button>
                         <button id="refresh-btn" class="refresh-button" title="Refresh Analysis">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
                                 <polyline points="23 4 23 10 17 10"></polyline>
                                 <polyline points="1 20 1 14 7 14"></polyline>
                                 <path d="m3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
@@ -86,23 +93,52 @@
                 <div id="analysis-metadata" class="analysis-metadata">
                     <!-- Analysis metadata will be populated here -->
                 </div>
-                
+
                 <div id="sentiment-overview" class="sentiment-overview">
                     <!-- Sentiment data will be populated here -->
                 </div>
 
                 <div id="key-points-section" class="key-points-section">
-                    <h4>Key Discussion Points</h4>
+                    <div class="section-header">
+                        <h4>Key Discussion Points</h4>
+                        <button id="copy-key-points-btn" class="copy-button" title="Copy Key Points">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="m5 15-4-4 4-4"></path>
+                                <path d="M11 6h10"></path>
+                            </svg>
+                            <span>Copy</span>
+                        </button>
+                    </div>
                     <div id="key-points-list" class="key-points-list">
                         <!-- Key points will be populated here -->
                     </div>
                 </div>
 
                 <div id="comprehensive-summary" class="comprehensive-summary">
-                    <h4>Comprehensive Analysis</h4>
+                    <div class="section-header">
+                        <h4>Comprehensive Summary</h4>
+                        <button id="copy-summary-btn" class="copy-button" title="Copy Summary">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="m5 15-4-4 4-4"></path>
+                                <path d="M11 6h10"></path>
+                            </svg>
+                            <span>Copy</span>
+                        </button>
+                    </div>
                     <div id="comprehensive-text" class="comprehensive-text">
                         <!-- Comprehensive summary will be populated here -->
                     </div>
+                </div>
+                <div id="analysis-disclaimer" class="analysis-disclaimer">
+                    <em>Summary generated by AI based on <b id="total-analyzed-comments">100</b> analyzed comments
+                        (limited to a max of 100 comments per
+                        analysis). Video creator's comments are excluded to focus on audience feedback. Results may
+                        not represent all opinions.
+                        above.</em>
                 </div>
             </div>
 
@@ -113,8 +149,14 @@
                 <button id="retry-btn" class="retry-button">Try Again</button>
             </div>
         </main>
+
+        <footer class="footer">
+            <p>© 2025 YouTube Comments Analyzer by <a href="https://www.linkedin.com/in/rriverom/" id="author-link">Raul
+                    Rivero</a>. All rights reserved.</p>
+        </footer>
     </div>
 
     <script src="popup.js"></script>
 </body>
+
 </html>
